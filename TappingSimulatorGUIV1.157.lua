@@ -16,6 +16,7 @@ getgenv().ClaimRandomReward = false;
 getgenv().HatchEgg = false;
 getgenv().halloweenTap = false;
 local remotePath = game:GetService("ReplicatedStorage").Events;
+
 --auto tapping
 function doTap()
     spawn(function() 
