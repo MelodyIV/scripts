@@ -44,6 +44,14 @@ function buyEgg(eggType)
         end
     end)
 end
+--claimrandomreward
+function autoclaimrandomreward()
+    spawn(function()
+        while wait(1) do
+            game:GetService("ReplicatedStorage").Events.ClaimRandomReward:FireServer()
+        end
+    end)
+end
 --get pos
 function getCurrentPlayerPOS()
     local plyr = game.Players.localPlayer;
