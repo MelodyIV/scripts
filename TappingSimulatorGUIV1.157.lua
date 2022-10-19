@@ -16,7 +16,6 @@ getgenv().ClaimRandomReward = false;
 getgenv().HatchEgg = false;
 getgenv().halloweenTap = false;
 local remotePath = game:GetService("ReplicatedStorage").Events;
-
 --auto tapping
 function doTap()
     spawn(function() 
@@ -41,6 +40,14 @@ function buyEgg(eggType)
             local args = {[1] = {}, [2] = (eggType), [3] = 1}
             remotePath.HatchEgg:InvokeServer(unpack(args))
             wait()
+        end
+    end)
+end
+--claimrandomreward
+function autoclaimrandomreward()
+    spawn(function()
+        while wait(1) do
+            game:GetService("ReplicatedStorage").Events.ClaimRandomReward:FireServer()
         end
     end)
 end
