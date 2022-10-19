@@ -1,3 +1,10 @@
+getgenv().Tap = false;
+getgenv().Rebirth = false;
+getgenv().ClaimRandomReward = false;
+getgenv().HatchEgg = false;
+getgenv().halloweenTap = false;
+local remotePath = game:GetService("ReplicatedStorage").Events;
+
 function doTap()
     spawn(function()
         while Tap == true do
