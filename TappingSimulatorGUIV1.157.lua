@@ -15,6 +15,10 @@ getgenv().Rebirth = false;
 getgenv().ClaimRandomReward = false;
 getgenv().HatchEgg = false;
 getgenv().halloweenTap = false;
+getgenv().autoUpgradeRebirths = false;
+getgenv().autoGemMultiplierUpgrade = false;
+getgenv().autojumps = false;
+getgenv().autoStorageUpgrade = false;
 local remotePath = game:GetService("ReplicatedStorage").Events;
 
 --auto tapping
@@ -24,6 +28,46 @@ function doTap()
             local args = {[1] = 1}
             remotePath.Tap:FireServer(unpack(args))
             wait()
+        end
+    end)
+end
+--rebirth upgrade
+function autoRebirthUpgrade()
+    spawn(function()
+        while wait(1) do
+            local args = {
+            [1] = "rebirthUpgrades"}
+            game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
+        end
+    end)
+end
+--gem upgrade
+function autoGemMultiplierUpgrade()
+    spawn(function()
+        while wait(2) do
+            local args = {
+            [1] = "gemMultiplierUpgrade"}
+            game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
+        end
+    end)
+end
+--jump upgrade
+function autojumps()
+    spawn(function()
+        while wait(2) do
+            local args = {
+            [1] = "jumps"}
+            game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
+        end
+    end)
+end
+--storage upgrade
+function autoStorageUpgrade()
+    spawn(function()
+        while wait(2) do
+            local args = {
+            [1] = "storageUpgrade"}
+            game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
         end
     end)
 end
